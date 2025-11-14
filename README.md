@@ -1,139 +1,101 @@
-##Quality Management Document System
+# Quality Management Document System  
+Built with Microsoft Power Apps, SharePoint, and Power Automate
 
-Power Apps, SharePoint, Power Automate
+## Overview  
+This repository contains a complete Quality Management Document System designed for controlled document environments where compliance, traceability, and audit readiness are non-negotiable. The solution manages the full document lifecycle from creation to approval and expiry.
 
-###Overview
-This solution is a fully functional Quality Management Document System built on Microsoft Power Platform. It centralizes document creation, review, approval, versioning, and ongoing lifecycle management for Quality Assurance teams. The app is designed for controlled document environments where traceability, compliance, and audit readiness matter.
+## Core Features  
 
-###Core Features
-Document Management
-Create, upload, and manage controlled documents
-Metadata-driven categorization, no static folder dependencies
-SharePoint as the primary data and file store
-Automatic versioning, status tracking, and audit logs
+### Document Management  
+- Upload and manage controlled documents  
+- Metadata-driven categorization  
+- Built-in versioning and document status tracking  
+- SharePoint as secure document storage  
 
-Approvals and Workflow
-Power Automate flows for review and sign-off
-Multi-stage approval routing with timestamps
-Automated notifications for pending tasks and expiring documents
-Records and Lifecycle
+### Workflow and Approvals  
+- Multi-stage approval via Power Automate  
+- Timestamped review history  
+- Automated notifications and reminders  
+- Routing based on roles or categories  
 
-Expiry monitoring with alerts
-Activity tracking for view, edit, and approval events
+### Lifecycle and Records  
+- Expiry tracking and proactive alerts  
+- Activity auditing: viewed, edited, approved  
+- “My Records” personalized view  
+- Role-based visibility for sensitive documents  
 
-“My Records” view for personalized document access
+### UI and User Experience  
+- Fully responsive Canvas App  
+- Collapsible metadata panels  
+- Dynamic filtering and searching  
+- Variable-based theming for quick branding updates  
+- PDF preview integration  
 
-Role-based visibility for sensitive document sets
-UI/UX
-Fully responsive Power Apps canvas app
-Collapsible metadata panels and dynamic filtering
-Variable-based theme structure for quick branding changes
-Integrated PDF preview support
+## Architecture  
 
-###Architecture
-Power Apps
+### Power Apps  
+Canvas application containing:  
+- **Home**  
+- **My Records**  
+- **Record Details**  
+- **Approvals**  
+- **Expiring Soon**  
+- **Dashboard**
 
-Canvas application for document submission, review, metadata management, and search
+### SharePoint (Data Layer)  
+Libraries and lists used:  
+- **Documents Library**  
+  - Title  
+  - DocumentLink  
+  - UploadDate  
+  - ExpiryDate  
+  - Status  
+  - Version  
+  - SubmittedBy  
+  - ApprovedBy  
+  - Category metadata: MainCategory, SubCategory, SubSubCategory  
+- **Approvers List**  
+- **Metadata List** (for cascading categories)
 
-Screens: Home, My Records, Approvals, Expiring Soon, Record Details, Dashboard
+### Power Automate  
+- Document approval workflow  
+- Expiring document alert workflow  
+- Versioning automation flow  
+- Optional access-control synchronization
 
-SharePoint
+## Installation and Setup  
 
-Primary storage for documents
+### Prerequisites  
+- Power Apps license  
+- SharePoint Online site  
+- Power Automate license  
+- Power Platform environment
 
-Lists/Libraries:
+### Steps  
+1. Import the solution package from this repository.  
+2. Create the necessary SharePoint lists and libraries using the provided templates (if included).  
+3. Open the Power App and update all data connections.  
+4. Configure all Power Automate flows with the correct SharePoint URLs.  
+5. Populate the **Approvers** list with roles and email mappings.  
+6. Publish the application and test the entire document lifecycle.
 
-Documents (Title, UploadDate, ExpiryDate, Status, Version, SubmittedBy, Approver, DocumentLink, Category metadata)
+## Deployment  
+- Deploy via Power Platform Admin Center or Solution Import.  
+- Configure environment variables for site URLs, library names, and email groups.  
+- Follow recommended ALM procedures for packaging and release management.
 
-Approvers (role mapping)
+## Governance and Security  
+- Document access controlled via SharePoint permissions.  
+- Role-based restrictions for Finance or sensitive categories.  
+- Full logging and version history ensures audit readiness.  
+- Complies with enterprise DLP policies.
 
-Categories metadata (MainCategory, SubCategory, SubSubCategory)
+## Roadmap  
+- AI-driven metadata auto-tagging  
+- Enhanced PDF viewer with zoom and navigation  
+- Power BI dashboards for document analytics  
+- External API integration endpoints
 
-Power Automate
+## Support  
+Submit issues, bugs, or enhancement requests through GitHub Issues.
 
-Approval flow for document lifecycle
-
-Expiry notification flow
-
-Version control automation
-
-Role-based access sync (optional)
-
-Data Model
-
-Documents List Fields
-
-Title
-
-DocumentLink
-
-UploadDate
-
-ExpiryDate
-
-Status
-
-Version
-
-SubmittedBy
-
-ApprovedBy
-
-Category metadata (MainCategory, SubCategory, SubSubCategory)
-
-Setup Instructions
-Prerequisites
-
-Power Apps license
-
-SharePoint Online site
-
-Power Automate license
-
-Environment with Dataverse optional
-
-Steps
-
-Import the Power Apps solution file
-
-Create the required SharePoint lists and libraries using the templates provided in /SharePointTemplates
-
-Update data connections inside the Power App
-
-Update the Power Automate flows with correct SharePoint URLs
-
-Configure role mappings in the Approvers list
-
-Publish the app and test all workflows
-
-Deployment
-
-Use the included Solution Package for ALM
-
-Deploy through Power Platform Admin Center or manually import the solution zip
-
-Store environment variables for site URLs, library names, and email groups
-
-Governance and Security
-
-Access is controlled through SharePoint permissions and role mapping
-
-Finance or confidential categories can be restricted at library or item level
-
-Logging and version history ensures audit readiness
-
-Follow standard DLP policies to keep documents internal
-
-Roadmap
-
-AI-based auto-tagging for metadata
-
-Enhanced PDF viewer with zoom and multi-page navigation
-
-Analytics dashboard with Power BI integration
-
-API endpoints for external system integration
-
-Contact
-
-For enhancements, issues, or feature requests, create an issue in this repository
